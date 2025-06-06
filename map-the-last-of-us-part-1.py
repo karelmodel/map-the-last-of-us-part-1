@@ -81,7 +81,7 @@ def tocar_audio():
     st.audio(audio_bytes, format='audio/mp3', start_time=0)
 
 def main():
-    st.set_page_config(page_title="The Last of Us - Mapa Narrativo", layout="centered")
+    st.set_page_config(page_title="The Last of Us Parte I", layout="centered")
     st.title("🧟 The Last of Us - Parte I: Mapa Narrativo")
     st.markdown("Acompanhe a jornada de Joel e Ellie pelos EUA. Cada parada traz um momento marcante da história.")
 
