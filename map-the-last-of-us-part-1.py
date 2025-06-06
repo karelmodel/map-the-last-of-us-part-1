@@ -75,14 +75,10 @@ def criar_mapa(df, capitulos):
     return fig
 
 def tocar_audio():
-    st.markdown(
-        """
-        <audio autoplay hidden loop>
-            <source src="assets/som_ambiente.mp3" type="audio/mp3">
-        </audio>
-        """,
-        unsafe_allow_html=True
-    )
+    # Player de som ambiente
+    audio_file = open("assets/som_ambiente.mp3", "rb")
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format='audio/mp3', start_time=0)
 
 def main():
     st.set_page_config(page_title="The Last of Us - Mapa Narrativo", layout="centered")
@@ -97,9 +93,8 @@ def main():
     cidade_index = int(cap_index.split(".")[0]) - 1
     cap_atual = capitulos[cidade_index]
 
-    # Botão para tocar áudio ambiente
-    if st.button("🔊 Tocar som ambiente"):
-        tocar_audio()
+    # Tocar áudio ambiente
+    tocar_audio()
 
     with st.spinner("Carregando mapa..."):
         fig = criar_mapa(df, capitulos)
